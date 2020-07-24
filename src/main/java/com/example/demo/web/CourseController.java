@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.Course;
 import com.example.demo.repository.CourseRepossitory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 public class CourseController {
@@ -31,7 +32,8 @@ public class CourseController {
 						 @RequestParam(value = "mCourseEndDate") String CourseEndDate) {
 		return new Course(CourseDescription, SchoolName, CourseTutor, CoursePrice, CourseStartDate, CourseEndDate);
 	}
-	
+
+    @Autowired
 	public CourseController(CourseRepossitory repository) {
 		// TODO Auto-generated constructor stub
 		this.repository = repository;
